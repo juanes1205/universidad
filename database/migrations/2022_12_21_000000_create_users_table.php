@@ -15,11 +15,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('id_tipo_documento')->constrained('tipo_documentos');
+            $table->string('documento');
+            $table->string('nombre');
+            $table->integer('telefono');
+            $table->string('direccion');
+            $table->string('ciudad');
+            $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('rol');
+            $table->integer('estado')->default(1);
             $table->timestamps();
         });
     }

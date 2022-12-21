@@ -14,7 +14,7 @@ class RegistrarMateriaController extends Controller
      */
     public function index()
     {
-        //
+        return RegistrarMateria::all();
     }
 
     /**
@@ -25,7 +25,12 @@ class RegistrarMateriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registrarMateria = new RegistrarMateria();
+        $registrarMateria -> id_user = $request -> id_user;
+        $registrarMateria -> id_materia = $request -> id_materia;
+        $registrarMateria -> creditos = $request -> creditos;
+        $registrarMateria -> save();
+        return $registrarMateria;
     }
 
     /**
@@ -36,7 +41,7 @@ class RegistrarMateriaController extends Controller
      */
     public function show(RegistrarMateria $registrarMateria)
     {
-        //
+        return $registrarMateria;
     }
 
     /**
@@ -48,7 +53,11 @@ class RegistrarMateriaController extends Controller
      */
     public function update(Request $request, RegistrarMateria $registrarMateria)
     {
-        //
+        $registrarMateria -> id_user = $request -> id_user;
+        $registrarMateria -> id_materia = $request -> id_materia;
+        $registrarMateria -> creditos = $request -> creditos;
+        $registrarMateria -> save();
+        return $registrarMateria;
     }
 
     /**
@@ -59,6 +68,7 @@ class RegistrarMateriaController extends Controller
      */
     public function destroy(RegistrarMateria $registrarMateria)
     {
-        //
+        $registrarMateria->estado = 0;
+        $registrarMateria->save();
     }
 }

@@ -14,7 +14,7 @@ class TipoDocumentoController extends Controller
      */
     public function index()
     {
-        return TipoDocumento::where('estado',1)->get();
+        return TipoDocumento::all();
     }
 
     /**
@@ -52,6 +52,7 @@ class TipoDocumentoController extends Controller
     public function update(Request $request, TipoDocumento $tipoDocumento)
     {
         $tipoDocumento-> tipo_documento = $request -> tipo_documento;
+        $tipoDocumento-> estado = $request -> estado;
         $tipoDocumento->save();
         return $tipoDocumento;
     }

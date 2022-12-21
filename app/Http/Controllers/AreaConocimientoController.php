@@ -14,7 +14,7 @@ class AreaConocimientoController extends Controller
      */
     public function index()
     {
-        return AreaConocimiento::where('estado',1)->get();
+        return AreaConocimiento::all();
     }
 
     /**
@@ -52,6 +52,7 @@ class AreaConocimientoController extends Controller
     public function update(Request $request, AreaConocimiento $areaConocimiento)
     {
         $areaConocimiento-> area_conocimiento = $request -> area_conocimiento;
+        $areaConocimiento-> estado = $request -> estado;
         $areaConocimiento->save();
         return $areaConocimiento;
     }

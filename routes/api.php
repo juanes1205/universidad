@@ -18,9 +18,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
+Route::apiResource('/users', App\Http\Controllers\UserController::class);
 Route::apiResource('/tipo_materias', App\Http\Controllers\TipoMateriaController::class);
 Route::apiResource('/tipo_documentos', App\Http\Controllers\TipoDocumentoController::class);
 Route::apiResource('/semestres', App\Http\Controllers\SemestreController::class);
 Route::apiResource('/creditos', App\Http\Controllers\CreditoController::class);
 Route::apiResource('/area_conocimientos', App\Http\Controllers\AreaConocimientoController::class);
 Route::apiResource('/materias', App\Http\Controllers\MateriaController::class);
+Route::apiResource('/registrar_materias', App\Http\Controllers\RegistrarMateriaController::class);

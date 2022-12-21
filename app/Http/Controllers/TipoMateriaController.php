@@ -52,6 +52,7 @@ class TipoMateriaController extends Controller
     public function update(Request $request, TipoMateria $tipoMateria)
     {
         $tipoMateria-> tipo_materia = $request -> tipo_materia;
+        $tipoMateria-> estado = $request -> estado;
         $tipoMateria->save();
         return $tipoMateria;
     }
@@ -64,6 +65,8 @@ class TipoMateriaController extends Controller
      */
     public function destroy(TipoMateria $tipoMateria)
     {
-        //
+        $tipoMateria->estado = 0;
+        $tipoMateria->save();
+        return $tipoMateria;
     }
 }

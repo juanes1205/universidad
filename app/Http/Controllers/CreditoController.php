@@ -14,7 +14,8 @@ class CreditoController extends Controller
      */
     public function index()
     {
-        return Credito::where('estado',1)->get();
+        //return Credito::where('estado',1)->get();
+        return Credito::all();
     }
 
     /**
@@ -52,6 +53,7 @@ class CreditoController extends Controller
     public function update(Request $request, Credito $credito)
     {
         $credito-> credito = $request -> credito;
+        $credito-> estado = $request -> estado;
         $credito->save();
         return $credito;
     }

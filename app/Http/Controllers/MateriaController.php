@@ -14,7 +14,7 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        return Materia::where('estado',1)->get();
+        return Materia::all();
     }
 
     /**
@@ -61,6 +61,7 @@ class MateriaController extends Controller
         $materia -> id_area = $request -> id_area;
         $materia -> id_tipo_materia = $request -> id_tipo_materia;
         $materia -> id_user = $request -> id_user;
+        $materia-> estado = $request -> estado;
         $materia -> save();
         return $materia;
     }
